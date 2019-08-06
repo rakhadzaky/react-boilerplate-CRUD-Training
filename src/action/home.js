@@ -126,7 +126,7 @@ function SubmitPostData(){
 function DeletePostData(postId){
     console.log("Delete Post "+postId)
     return(dispatch)=>{
-        Delete(dispatch,'/post/'+postId)
+        Delete(dispatch,'/posts/'+postId)
         .then(res => {
             console.log("true")
             console.log(res)
