@@ -1,0 +1,55 @@
+@import "../../global/style";
+
+.login_wrapper{
+	background-color: $primaryColor;
+	min-height: 100vh;
+}
+
+.loginForm_wrapper{
+	margin: auto;
+ 	width: 450px;
+ 	padding-top:150px;
+ 	
+ 	.login_form{
+		background-color: $background;
+		border: solid 1px $secondaryColor;
+		border-radius: 8px;
+		height: 300px;
+
+		.login_title{
+			
+		}
+		.login_logo{
+			height: 22px;
+			padding: 20px 30px;
+		}
+		.login_inputForm{
+			margin-left: 30px;
+			margin-top: 20px;
+		}
+		.login_inputForm input {
+			color: $primaryText;
+			font-size: 15px;
+			padding: 10px;
+			width: 390px;
+			box-sizing: border-box;
+			border: none;
+  			border-bottom: 1.5px solid $primaryColor;
+
+		}
+		.login_buttonWrapper{
+			margin: auto;
+			margin-top: 30px;
+		  	text-align: center;
+		  	.login_okButton{
+				
+			}
+			.login_okButton:hover{
+				
+			}
+		}
+		
+	}
+
+}
+

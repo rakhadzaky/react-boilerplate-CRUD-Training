@@ -1,0 +1,64 @@
+@import "../../../global/style";
+
+.button_wrapper{
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 4px;
+	font-size: 13px;
+	font-weight: 600;
+	padding: 10px 30px;
+	/* border: 1px solid $grey;
+	color: $grey;
+	 */
+	text-align: center;
+}
+
+.button_loading{
+	background-color: $disable;
+	color: #fff;
+	.button_loadingGif{
+		height: 13px;
+		margin-left: 10px;
+	}
+}
+
+.button_primary {
+	background-color: $primaryColor ;
+	color: #fff;
+}
+.button_table{
+	padding: 7px 15px;
+	background-color: $primaryColor ;
+	font-weight: 550;
+	color: #fff;
+}
+
+.button_primary:hover, .button_table:hover {
+	background-color: $primaryColorHover;
+}
+
+.button_secondary {
+	background-color: $tertiaryColor;
+	color: #fff;
+}
+.button_secondary:hover {
+	background-color: $tertiaryColorHover;
+}
+
+.button_noBorder {
+	// border: none;
+	// color: $primaryBlue;
+}
+
+.button_disable {
+	cursor: auto;
+	// background-color: $iconGrey;
+	// color: $white;
+	border: none;
+}
+
+.button_danger {
+	color: #fff;
+	background-color: $dangerColor;
+}
+

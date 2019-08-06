@@ -1,0 +1,50 @@
+@import "../../../global/style";
+
+.component_pagination {
+	display: inline-block;
+	width: 25%;
+	overflow: hidden;
+	position: relative;
+
+	.component_arrow {
+		cursor: pointer;
+		display: inline-block;
+		margin: 0 1em;
+		float: left;
+		display: block;
+		padding: 10px;
+		width: 36px;
+		color: $primary;
+		border-radius: 5px;
+		margin-top: 5px;
+	}
+
+	.component_arrow.component_right {
+		display: inline-block;
+		position: absolute;
+		background-color: $primary;
+		color: $white;
+	}
+
+	.comonent_active {
+		background-color: red;
+		font-size: 3em;
+		font-weight: 600;
+		color: $primary;
+	}
+
+
+	.component_pagination_number {
+		display: inline-block;
+		margin-bottom: 10px;
+		.component_nums {
+			cursor: pointer;
+			margin: 0 .2em;
+			display: block;
+			padding: 10px;
+			float: left;
+		}
+
+	}
+
+}
