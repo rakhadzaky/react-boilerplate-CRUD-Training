@@ -8,7 +8,7 @@ const DetailPost = (props) => {
 
     return(
         <div>
-            <Header loginLink={props.toLogin} homeLink={props.toHome} />
+            <Header loginLink={props.toLogin} postLink={props.toPost} userLink={props.toUser}/>
             <div className="ui hidden divider"></div>
             {
                 isFetching ?
@@ -63,14 +63,16 @@ const DetailPost = (props) => {
 }
 
 const states={
-    detailPost : '/home/detailedPost'
+    detailPost : '/post/detailedPost'
 }
 
 const actions={
     toLogin : () =>(['push','/login']),
-    toHome : () =>(['push','/post']),
-    DeletePostData : (postId) =>(['home/deletePostData', postId]),
-    EditPostData : (postId) =>(['home/editPostData', postId])
+    toPost : () =>(['push','/post']),
+    toUser : () =>(['push','/user']),
+    toAdd : () =>(['push','/addPost']),
+    DeletePostData : (postId) =>(['post/deletePostData', postId]),
+    EditPostData : (postId) =>(['post/editPostData', postId])
 }
 
 export default Connect(states,actions)(DetailPost)

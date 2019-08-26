@@ -2,15 +2,15 @@ import {Get, Post, Delete, Put} from "../global/network"
 
 function EmptyPostState(){
     return(dispatch)=>{
-        dispatch(['/home/addPostData',{
+        dispatch(['/post/addPostData',{
             attr: 'postId',
             payload: ''
         }])
-        dispatch(['/home/addPostData',{
+        dispatch(['/post/addPostData',{
             attr: 'title',
             payload: ''
         }])
-        dispatch(['/home/addPostData',{
+        dispatch(['/post/addPostData',{
             attr: 'body',
             payload: ''
         }])
@@ -20,21 +20,21 @@ function EmptyPostState(){
 function GetDetailPost(postId){
     return(dispatch)=>{
         console.log('GetDetailPost'+postId)
-        dispatch(['/home/changeDetailPostData',{
+        dispatch(['/post/changeDetailPostData',{
             attr: 'isFetching',
             payload: true
         }])
         Get(dispatch, '/posts/'+postId,{})
         .then(res => {
-            dispatch(['/home/changeDetailPostData',{
+            dispatch(['/post/changeDetailPostData',{
                 attr: 'postId',
                 payload: res.id
             }])
-            dispatch(['/home/changeDetailPostData',{
+            dispatch(['/post/changeDetailPostData',{
                 attr: 'title',
                 payload: res.title
             }])
-            dispatch(['/home/changeDetailPostData',{
+            dispatch(['/post/changeDetailPostData',{
                 attr: 'body',
                 payload: res.body
             }])
@@ -43,11 +43,11 @@ function GetDetailPost(postId){
 
         Get(dispatch, '/comments',{'postId' : postId})
         .then(res => {
-            dispatch(['/home/changeDetailPostData',{
+            dispatch(['/post/changeDetailPostData',{
                 attr: 'comments',
                 payload: res
             }])
-            dispatch(['/home/changeDetailPostData',{
+            dispatch(['/post/changeDetailPostData',{
                 attr: 'isFetching',
                 payload: false
             }])
@@ -61,17 +61,17 @@ function GetDetailPost(postId){
 function GetPostData(){
     console.log("GetDataUser")
     return( dispatch, getState)=>{
-        dispatch(['/home/changePostData',{
+        dispatch(['/post/changePostData',{
             attr: 'isFetching',
             payload: true
         }])
         Get(dispatch, '/posts',{})
         .then(res => {
-            dispatch(['/home/changePostData',{
+            dispatch(['/post/changePostData',{
                 attr: 'data',
                 payload: res
             }])
-            dispatch(['/home/changePostData',{
+            dispatch(['/post/changePostData',{
                 attr: 'isFetching',
                 payload: false
             }])
@@ -82,7 +82,7 @@ function GetPostData(){
 
 function AddPostData(attr, value){
     return(dispatch)=>{
-        dispatch(['/home/addPostData', {
+        dispatch(['/post/addPostData', {
             attr: attr,
             payload: value
         }])
@@ -93,8 +93,8 @@ function AddPostData(attr, value){
 function SubmitPostData(){
     return(dispatch, getState)=>{
         const state = getState()
-        const title = state.home.getIn(['addPost','title']).trim()
-        const body = state.home.getIn(['addPost','body']).trim()
+        const title = state.post.getIn(['postData','title']).trim()
+        const body = state.post.getIn(['postData','body']).trim()
         Post(dispatch, '/posts', {
             'userId': 1,
             'title': title,
@@ -103,15 +103,15 @@ function SubmitPostData(){
         .then(res => {
             console.log("true => ")
             console.log(res)
-            dispatch(['/home/addPostData',{
+            dispatch(['/post/addPostData',{
                 attr: 'postId',
                 payload: ''
             }])
-            dispatch(['/home/addPostData',{
+            dispatch(['/post/addPostData',{
                 attr: 'title',
                 payload: ''
             }])
-            dispatch(['/home/addPostData',{
+            dispatch(['/post/addPostData',{
                 attr: 'body',
                 payload: ''
             }])
@@ -142,19 +142,19 @@ function EditPostData(postId){
     return(dispatch)=>{
         Get(dispatch, '/posts/'+postId,{})
         .then(res => {
-            dispatch(['/home/addPostData',{
+            dispatch(['/post/addPostData',{
                 attr: 'postId',
                 payload: res.id
             }])
-            dispatch(['/home/addPostData',{
+            dispatch(['/post/addPostData',{
                 attr: 'title',
                 payload: res.title
             }])
-            dispatch(['/home/addPostData',{
+            dispatch(['/post/addPostData',{
                 attr: 'body',
                 payload: res.body
             }])
-            dispatch(['/home/addPostData',{
+            dispatch(['/post/addPostData',{
                 attr: 'isEdit',
                 payload: true
             }])
@@ -168,9 +168,9 @@ function EditPostData(postId){
 function UpdatePostData(){
     return(dispatch, getState)=>{
         const state = getState()
-        const title = state.home.getIn(['addPost','title']).trim()
-        const body = state.home.getIn(['addPost','body']).trim()
-        const postId = state.home.getIn(['addPost','postId'])
+        const title = state.post.getIn(['postData','title']).trim()
+        const body = state.post.getIn(['postData','body']).trim()
+        const postId = state.post.getIn(['postData','postId'])
         Put(dispatch, '/posts/'+postId, {
             'userId': 1,
             'title': title,
@@ -179,19 +179,19 @@ function UpdatePostData(){
         .then(res => {
             console.log("true => ")
             console.log(res)
-            dispatch(['/home/addPostData',{
+            dispatch(['/post/addPostData',{
                 attr: 'isEdit',
                 payload: false
             }])
-            dispatch(['/home/addPostData',{
+            dispatch(['/post/addPostData',{
                 attr: 'postId',
                 payload: ''
             }])
-            dispatch(['/home/addPostData',{
+            dispatch(['/post/addPostData',{
                 attr: 'title',
                 payload: ''
             }])
-            dispatch(['/home/addPostData',{
+            dispatch(['/post/addPostData',{
                 attr: 'body',
                 payload: ''
             }])

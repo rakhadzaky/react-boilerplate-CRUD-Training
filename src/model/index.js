@@ -7,13 +7,14 @@ import {IsArray} from '../global/utility'
 
 // data
 import login from './login'
-import home from './home'
+import post from './post'
+import user from './user'
 
 // import {createLogger} from 'redux-logger'
 // const logger = createLogger()
 
 const reducerSpecs = {
-   login,home
+   login,post,user
 }
 
 function Reducer(moduleName, {initialState, events}) {

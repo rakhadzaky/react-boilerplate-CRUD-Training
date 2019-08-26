@@ -4,6 +4,8 @@ import Login from './login'
 import Home from './home'
 import DetailPost from './detailPost'
 import AddPost from './addPost'
+import User from './user'
+import PostUser from './postSpesific/postUser'
 
 function requireAuth(nextState, replace, callback) {
     let notAuth = true
@@ -28,6 +30,8 @@ function Root({history}) {
                 <Route path="/post" component={Home} />
                 <Route path="/detailPost" component={DetailPost} />
                 <Route path="/addPost" component={AddPost} />
+                <Route path="/user" component={User} />
+                <Route path="/postUser" component={PostUser} />
                 <Route path="/" component={Login} />
             </Switch>
        	</Router>

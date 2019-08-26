@@ -4,10 +4,10 @@ const Header = (props) =>{
     return(
         <div className="ui attached stackable menu">
             <div className="ui container">
-                <a className="item" onClick={props.homeLink}>
+                <a className="item" onClick={props.postLink}>
                     <i className="home icon"></i> Home
                 </a>
-                <a className="item">
+                <a className="item" onClick={props.userLink}>
                     <i className="users icon"></i> Users
                 </a>
                 <div className="right item">

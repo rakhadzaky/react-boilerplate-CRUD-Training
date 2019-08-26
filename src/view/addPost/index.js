@@ -2,13 +2,14 @@ import React from 'react'
 import { GetAttrs } from '../../global/utility';
 import Connect from '../connect';
 import Header from '../component/header'
+import { Button as ButtonUI, Header as HeaderUI, Icon, Modal } from 'semantic-ui-react'
 
 const Add = (props) => {
     const[postId, title, body, isEdit] = GetAttrs(props.postData,['postId','title','body','isEdit'])
 
     return(
         <div>
-            <Header homeLink={props.toHome} loginLink={props.toLogin} />
+            <Header loginLink={props.toLogin} postLink={props.toPost} userLink={props.toUser}/>
             <div className="ui hidden divider"></div>
             <h3 className="ui headier dividing container">Post your story</h3>
             <div className="ui form container">
@@ -31,20 +32,33 @@ const Add = (props) => {
                     </button>
                 }
             </div>
+            {/* <Modal
+                trigger={isEdit}
+                basic size='small'
+            >
+                <HeaderUI icon='paper plane' content='Successfully Submit!' />
+                <Modal.Content>
+                <p>
+                    Congratulation! you just successfully submit your new story! Click anywhere to continue
+                </p>
+                </Modal.Content>
+            </Modal> */}
         </div>
     )
 }
 
 const state={
-    postData : '/home/addPost'
+    postData : '/post/addPost'
 }
 
 const actions={
-    AddPostData : (attr) => (e) => (['home/addPostData', attr, e.target.value]),
-    SubmitPostData: ()=>(['home/submitPostData']),
-    UpdatePostData: ()=>(['home/updatePostData']),
+    AddPostData : (attr) => (e) => (['post/addPostData', attr, e.target.value]),
+    SubmitPostData: ()=>(['post/submitPostData']),
+    UpdatePostData: ()=>(['post/updatePostData']),
     toLogin : () =>(['push','/login']),
-    toHome : () =>(['push','/post'])
+    toPost : () =>(['push','/post']),
+    toUser : () =>(['push','/user']),
+    toAdd : () =>(['push','/addPost'])
 }
 
 export default Connect(state, actions)(Add)

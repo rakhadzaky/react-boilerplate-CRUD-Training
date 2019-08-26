@@ -1,6 +1,5 @@
-
 const initialState = {
-	addPost: {
+	postData: {
 		postId: '',
 		title: '',
 		body: '',
@@ -20,7 +19,7 @@ const initialState = {
 }
 
 const events = {
-	addPostData :(state, action) => (state.updateIn(['addPost', action.attr], val => action.payload)),
+	addPostData :(state, action) => (state.updateIn(['postData', action.attr], val => action.payload)),
 	changePostData :(state, action) => (state.updateIn(['post', action.attr], val => action.payload)),
 	changeDetailPostData: (state, action) => (state.updateIn(['detailedPost', action.attr], val=> action.payload)),
 }
@@ -28,5 +27,4 @@ const events = {
 export default {
 	initialState,events
 }
-
 

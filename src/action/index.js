@@ -2,10 +2,11 @@ import {FnsCreator} from '../global/utility'
 import {push} from 'react-router-redux'
 
 import login from './login'
-import home from './home'
+import post from './post'
+import user from './user'
 
 const specs = {
-     login,home
+     login,post,user
 }
 
 

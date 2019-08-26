@@ -4,14 +4,15 @@ import { GetAttrs } from '../../global/utility';
 
 const Item = (props) => {
     const[postData] = GetAttrs(props.post,['data'])
+    const[userId, name, email, address] = GetAttrs(props.user,['userId', 'name', 'email', 'address'])
 
     return(
         <div className="ui grid container">
-            {postData.slice(0, 10).map((value,index) =>{
+            {postData.filter(post => post.userId == userId).map((value,index) =>{
                 return(
                 <div className="four wide column" key={index}>
                     <div className="ui segment">
-                        <h4 className="ui header">{value.title}</h4>
+                        <h4 className="ui header">{value.userId} {value.title}</h4>
                         <p>{value.body}</p>
                         <button className="ui animated button" onClick={() => props.GetDetailPost(value.id)}>
                             <div className="visible content">Read More...</div>
@@ -28,7 +29,7 @@ const Item = (props) => {
 }
 const states={
     post: '/post/post',
-    comment: '/post/detailedPost'
+    user: '/user/detailedUser'
 }
 const actions={
     GetDetailPost : (postId) => (['post/getDetailPost', postId]),

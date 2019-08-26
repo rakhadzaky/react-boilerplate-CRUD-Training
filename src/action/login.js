@@ -8,22 +8,21 @@ function Login(){
             return
         }
         dispatch(['/login/changeForm', {
-                attr : 'isFetching',
-                payload : true
+            attr : 'isFetching',
+            payload : true
 		}])
 
-		dispatch(['push','/home'])
+		dispatch(['push','/post'])
 	}
 }
 function ChangeForm(attr, value) {
     return (dispatch) => {
         dispatch(['/login/changeForm', {
-        		attr : attr,
-        		payload : value
-        	}])
+        	attr : attr,
+        	payload : value
+        }])
     }
 }
-
 export default{
 	changeForm: ChangeForm,
 	login : Login
